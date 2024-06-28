@@ -11,14 +11,25 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
   <dependencies>
-        <!-- JUnit for testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+    		<groupId>com.github.u-senanayake</groupId>
+    		<artifactId>StrUtils</artifactId>
+    		<version>0.0.1-SNAPSHOT</version>
+		</dependency>
     </dependencies>
   <build>
         <plugins>
