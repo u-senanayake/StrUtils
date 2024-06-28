@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.example.strutils.StrUtils;
 
-public class StringUtilsTest {
+public class StrUtilsTest {
 
 	@Test
     public void testReverse() {
@@ -29,16 +29,16 @@ public class StringUtilsTest {
 
     @Test
     public void testSplitAndTrim() {
-        assertArrayEquals(new String[]{"a", "b", "c"}, StrUtils.splitAndTrim("a, b, c", ","));
-        assertArrayEquals(new String[]{"a", "b", "c"}, StrUtils.splitAndTrim("a,b,c", ","));
-        assertArrayEquals(new String[]{}, StrUtils.splitAndTrim("", ","));
+		assertArrayEquals(new String[] { "a", "b", "c" }, StrUtils.splitAndTrim("a, b, c", ","));
+		assertArrayEquals(new String[] { "a", "b", "c" }, StrUtils.splitAndTrim("a,b,c", ","));
+		assertArrayEquals(new String[] {}, StrUtils.splitAndTrim("", ","));
     }
 
     @Test
     public void testJoin() {
-        assertEquals("a,b,c", StrUtils.join(Arrays.asList("a", "b", "c"), ","));
-        assertEquals("a, b, c", StrUtils.join(Arrays.asList("a", " b", " c"), ", "));
-        assertEquals("", StrUtils.join(Arrays.asList(), ","));
+		assertEquals("a,b,c", StrUtils.join(Arrays.asList("a", "b", "c"), ","));
+		assertEquals("a, b, c", StrUtils.join(Arrays.asList("a", " b", " c"), ", "));
+		assertEquals("", StrUtils.join(Arrays.asList(), ","));
     }
 
 	@Test

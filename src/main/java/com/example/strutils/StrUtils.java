@@ -48,6 +48,9 @@ public class StrUtils {
 		if (input == null || delimiter == null) {
 			return new String[0];
 		}
+		if (input.isEmpty()) {
+			return new String[0];
+		}
 		String[] parts = input.split(Pattern.quote(delimiter));
 		List<String> trimmedParts = new ArrayList<>();
 		for (String part : parts) {
@@ -61,9 +64,14 @@ public class StrUtils {
 		if (input == null || input.isEmpty()) {
 			return "";
 		}
-		return String.join(delimiter, input);
+		List<String> trimmedParts = new ArrayList<>();
+		for (String part : input) {
+			trimmedParts.add(part.trim());
+		}
+		return String.join(delimiter, trimmedParts);
 	}
 
+	// Smart truncate
 	public static String smartTruncate(String input, int length) {
 		if (input == null || length <= 0) {
 			return "";
@@ -78,6 +86,7 @@ public class StrUtils {
 		return input.substring(0, end) + "...";
 	}
 
+	// Remove duplicate words
 	public static String removeDuplicateWords(String input) {
 		if (input == null || input.isEmpty()) {
 			return input;
@@ -90,6 +99,7 @@ public class StrUtils {
 		return String.join(" ", uniqueWords);
 	}
 
+	// Levenshtein distance
 	public static int levenshteinDistance(String a, String b) {
 		int[][] dp = new int[a.length() + 1][b.length() + 1];
 		for (int i = 0; i <= a.length(); i++) {
@@ -107,6 +117,7 @@ public class StrUtils {
 		return dp[a.length()][b.length()];
 	}
 
+	// Normalize whitespace
 	public static String normalizeWhitespace(String input) {
 		if (input == null) {
 			return "";
@@ -114,6 +125,7 @@ public class StrUtils {
 		return input.trim().replaceAll("\\s+", " ");
 	}
 
+	// Extract numbers
 	public static List<String> extractNumbers(String input) {
 		List<String> numbers = new ArrayList<>();
 		if (input == null || input.isEmpty()) {
@@ -126,6 +138,7 @@ public class StrUtils {
 		return numbers;
 	}
 
+	// Reverse words
 	public static String reverseWords(String input) {
 		if (input == null || input.isEmpty()) {
 			return input;
@@ -138,6 +151,7 @@ public class StrUtils {
 		return reversed.toString().trim();
 	}
 
+	// Mask sensitive data
 	public static String maskSensitiveData(String input, String regex, String mask) {
 		if (input == null || regex == null || mask == null) {
 			return input;
@@ -145,6 +159,7 @@ public class StrUtils {
 		return input.replaceAll(regex, mask);
 	}
 
+	// Character frequency
 	public static Map<Character, Integer> characterFrequency(String input) {
 		Map<Character, Integer> frequencyMap = new HashMap<>();
 		if (input == null || input.isEmpty()) {
