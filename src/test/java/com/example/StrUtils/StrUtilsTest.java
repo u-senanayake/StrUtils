@@ -17,7 +17,6 @@ public class StrUtilsTest {
         assertEquals("dcba", StrUtils.reverse("abcd"));
         assertEquals("", StrUtils.reverse(""));
         assertEquals("a", StrUtils.reverse("a"));
-		// assertEquals("a", "a".toLowerCase());
     }
 
     @Test
